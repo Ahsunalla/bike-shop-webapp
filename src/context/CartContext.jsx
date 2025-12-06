@@ -5,15 +5,26 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  // Load cart from localStorage
+  // Load cart safely (only runs in browser)
   useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) setCart(JSON.parse(savedCart));
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        try {
+          setCart(JSON.parse(savedCart));
+        } catch {
+          // corrupted data — reset cart
+          setCart([]);
+        }
+      }
+    }
   }, []);
 
-  // Save cart to localStorage
+  // Save cart safely
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
   }, [cart]);
 
   const addToCart = (bike) => {
