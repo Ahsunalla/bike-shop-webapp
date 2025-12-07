@@ -9,6 +9,9 @@ import Parts from "./pages/Parts";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
+import PartDetails from "./pages/PartDetails";
+import Admin from "./pages/Admin";
+
 
 
 const router = createBrowserRouter([
@@ -21,9 +24,11 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/parts", element: <Parts /> },
+      { path: "/parts/:id", element: <PartDetails /> },
       { path: "/cart", element: <Cart /> },
       { path: "/checkout", element: <Checkout /> },
-      { path: "/order-success", element: <OrderSuccess /> }
+      { path: "/order-success", element: <OrderSuccess /> },
+      { path: "/admin", element: <Admin /> },
     ],
   },
 ]);

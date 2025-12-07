@@ -5,7 +5,6 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  // Load cart safely (only runs in browser)
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedCart = localStorage.getItem("cart");
@@ -13,14 +12,12 @@ export function CartProvider({ children }) {
         try {
           setCart(JSON.parse(savedCart));
         } catch {
-          // corrupted data — reset cart
           setCart([]);
         }
       }
     }
   }, []);
 
-  // Save cart safely
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -34,9 +31,8 @@ export function CartProvider({ children }) {
         return prev.map((item) =>
           item.id === bike.id ? { ...item, qty: item.qty + 1 } : item
         );
-      } else {
-        return [...prev, { ...bike, qty: 1 }];
       }
+      return [...prev, { ...bike, qty: 1 }];
     });
   };
 
@@ -52,8 +48,13 @@ export function CartProvider({ children }) {
     );
   };
 
+  // Added function
+  const clearCart = () => setCart([]);
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQty }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, updateQty, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -22,22 +22,18 @@ export default function Checkout() {
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
-  // Validate required fields
   const validate = () => {
     const newErrors = {};
+    const fields = ["name", "email", "phone", "address", "postal", "city"];
 
-    if (!form.name.trim()) newErrors.name = "Påkrævet";
-    if (!form.email.trim()) newErrors.email = "Påkrævet";
-    if (!form.phone.trim()) newErrors.phone = "Påkrævet";
-    if (!form.address.trim()) newErrors.address = "Påkrævet";
-    if (!form.postal.trim()) newErrors.postal = "Påkrævet";
-    if (!form.city.trim()) newErrors.city = "Påkrævet";
+    fields.forEach((f) => {
+      if (!form[f].trim()) newErrors[f] = "Påkrævet";
+    });
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // REAL STRIPE CHECKOUT REDIRECT
   const handlePayment = async () => {
     if (!validate()) return;
 
@@ -45,13 +41,13 @@ export default function Checkout() {
       const res = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart }),
+        body: JSON.stringify({ items: cart }), // FIXED
       });
 
       const data = await res.json();
 
       if (data.url) {
-        window.location.href = data.url; // Redirect to Stripe
+        window.location.href = data.url;
       } else {
         alert("Payment error. Try again.");
       }
@@ -80,13 +76,11 @@ export default function Checkout() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-10 text-center">
-        Checkout
-      </h1>
+      <h1 className="text-4xl font-bold mb-10 text-center">Checkout</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-        {/* LEFT — CUSTOMER FORM */}
+        {/* CUSTOMER FORM */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Dine oplysninger</h2>
 
@@ -96,9 +90,7 @@ export default function Checkout() {
                 <div key={field}>
                   <input
                     type="text"
-                    placeholder={
-                      field.charAt(0).toUpperCase() + field.slice(1)
-                    }
+                    placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                     value={form[field]}
                     onChange={(e) =>
                       setForm({ ...form, [field]: e.target.value })
@@ -118,16 +110,13 @@ export default function Checkout() {
           </div>
         </div>
 
-        {/* RIGHT — ORDER SUMMARY */}
+        {/* ORDER SUMMARY */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Ordreoversigt</h2>
 
           <div className="space-y-4">
             {cart.map((item) => (
-              <div
-                key={item.id}
-                className="flex justify-between border-b pb-3"
-              >
+              <div key={item.id} className="flex justify-between border-b pb-3">
                 <div>
                   <p className="font-semibold">{item.name}</p>
                   <p className="text-gray-600 text-sm">Antal: {item.qty}</p>
@@ -152,6 +141,7 @@ export default function Checkout() {
             Betal nu
           </button>
         </div>
+
       </div>
     </div>
   );

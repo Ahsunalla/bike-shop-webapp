@@ -18,7 +18,7 @@ export default function BikeDetails() {
   // Specs accordion
   const [specsOpen, setSpecsOpen] = useState(true);
 
-  // Helper: format price as Danish number (e.g. 12.999 kr)
+  // Helper: format price as Danish number like the following: 12.999 kr
   const formatPrice = (value) => {
     if (value === null || value === undefined) return "";
     return new Intl.NumberFormat("da-DK").format(value) + " kr";
@@ -112,7 +112,7 @@ export default function BikeDetails() {
 
   return (
     <>
-      {/* ⭐ Sticky Add-to-Cart Bar */}
+      {/* Sticky Add to Cart Bar */}
       {showStickyBar && (
         <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50 py-3 px-6 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-900 truncate max-w-[40%]">
@@ -161,7 +161,7 @@ export default function BikeDetails() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-          {/* LEFT IMAGE with zoom-on-hover */}
+          {/* LEFT IMAGE with zoom on hover */}
           <div>
             <div className="bg-gray-100 rounded-lg shadow overflow-hidden">
               <img
@@ -190,7 +190,7 @@ export default function BikeDetails() {
               {bike.description}
             </p>
 
-            {/* ⭐ BUTTONS ABOVE SPECS */}
+            {/* BUTTONS ABOVE SPECS */}
             <div className="flex gap-4 mt-8 mb-10">
               <button
                 onClick={() => addToCart(bike)}
@@ -212,7 +212,7 @@ export default function BikeDetails() {
               </button>
             </div>
 
-            {/* ⭐ Specifications Accordion */}
+            {/* Specifications Accordion */}
             {bike.specs && (
               <div className="mt-4 bg-gray-100 rounded-lg">
                 {/* Accordion header */}
@@ -251,7 +251,7 @@ export default function BikeDetails() {
           </div>
         </div>
 
-        {/* ⭐ FULL-WIDTH RELATED SLIDER */}
+        {/* FULL-WIDTH RELATED SLIDER */}
         {relatedBikes.length > 0 && (
           <div className="mt-20 w-full">
             <div className="flex justify-between items-center mb-6">

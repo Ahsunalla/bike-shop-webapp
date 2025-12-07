@@ -7,7 +7,7 @@ export default function MainLayout() {
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
 
-      {/* Page content goes here */}
+      {/* Note for myself, Page content goes here */}
       <main className="flex-1">
         <Outlet />
       </main>

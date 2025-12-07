@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       price_data: {
         currency: "dkk",
         product_data: { name: item.name },
-        unit_amount: item.price * 100, // Stripe expects øre
+        unit_amount: item.price * 100,
       },
       quantity: item.qty,
     }));
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      success_url: `${req.headers.origin}/success`,
+      success_url: `${req.headers.origin}/order-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/checkout`,
     });
 
