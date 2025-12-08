@@ -7,7 +7,10 @@ export default function Admin() {
   const [session, setSession] = useState(null);
   const [checkingSession, setCheckingSession] = useState(true);
 
-  const [loginForm, setLoginForm] = useState({ email: ADMIN_EMAIL, password: "" });
+  const [loginForm, setLoginForm] = useState({
+    email: ADMIN_EMAIL,
+    password: "",
+  });
   const [loginError, setLoginError] = useState("");
 
   const [activeTab, setActiveTab] = useState("bikes"); // "bikes" | "parts"
@@ -23,6 +26,16 @@ export default function Admin() {
     stock: "",
     category: "",
     image_url: "",
+    specs: {
+      frame: "",
+      gears: "",
+      motor: "",
+      range: "",
+      brakes: "",
+      weight: "",
+      battery: "",
+      wheel_size: "",
+    },
   });
   const [bikeSaving, setBikeSaving] = useState(false);
 
@@ -126,6 +139,16 @@ export default function Admin() {
       stock: "",
       category: "",
       image_url: "",
+      specs: {
+        frame: "",
+        gears: "",
+        motor: "",
+        range: "",
+        brakes: "",
+        weight: "",
+        battery: "",
+        wheel_size: "",
+      },
     });
   };
 
@@ -153,6 +176,7 @@ export default function Admin() {
       stock: Number(bikeForm.stock),
       category: bikeForm.category,
       image_url: bikeForm.image_url,
+      specs: bikeForm.specs,
     };
 
     let error;
@@ -184,6 +208,16 @@ export default function Admin() {
       stock: bike.stock || "",
       category: bike.category || "",
       image_url: bike.image_url || "",
+      specs: {
+        frame: bike.specs?.frame || "",
+        gears: bike.specs?.gears || "",
+        motor: bike.specs?.motor || "",
+        range: bike.specs?.range || "",
+        brakes: bike.specs?.brakes || "",
+        weight: bike.specs?.weight || "",
+        battery: bike.specs?.battery || "",
+        wheel_size: bike.specs?.wheel_size || "",
+      },
     });
   };
 
@@ -287,7 +321,9 @@ export default function Admin() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Password</label>
+              <label className="block text-sm font-medium mb-1">
+                Password
+              </label>
               <input
                 type="password"
                 value={loginForm.password}
@@ -322,7 +358,8 @@ export default function Admin() {
         <div>
           <h1 className="text-3xl font-bold">Admin Dashboard</h1>
           <p className="text-gray-600 text-sm">
-            Logged in as <span className="font-medium">{session.user.email}</span>
+            Logged in as{" "}
+            <span className="font-medium">{session.user.email}</span>
           </p>
         </div>
 
@@ -367,7 +404,10 @@ export default function Admin() {
               {bikeForm.id ? "Edit Bike" : "Add New Bike"}
             </h2>
 
-            <form onSubmit={handleSaveBike} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form
+              onSubmit={handleSaveBike}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <input
                 type="text"
                 placeholder="Name"
@@ -425,7 +465,123 @@ export default function Admin() {
                 rows={3}
               />
 
-              <div className="flex gap-3 md:col-span-2 mt-2">
+              {/* SPECS SECTION */}
+              <div className="md:col-span-2 mt-4">
+                <h3 className="text-lg font-semibold mb-2">
+                  Bike Specifications
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Frame"
+                    value={bikeForm.specs.frame}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, frame: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Gears"
+                    value={bikeForm.specs.gears}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, gears: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Motor"
+                    value={bikeForm.specs.motor}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, motor: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Range"
+                    value={bikeForm.specs.range}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, range: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Brakes"
+                    value={bikeForm.specs.brakes}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, brakes: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Weight"
+                    value={bikeForm.specs.weight}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, weight: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Battery"
+                    value={bikeForm.specs.battery}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: { ...bikeForm.specs, battery: e.target.value },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Wheel Size"
+                    value={bikeForm.specs.wheel_size}
+                    onChange={(e) =>
+                      setBikeForm({
+                        ...bikeForm,
+                        specs: {
+                          ...bikeForm.specs,
+                          wheel_size: e.target.value,
+                        },
+                      })
+                    }
+                    className="border rounded-lg px-3 py-2"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-3 md:col-span-2 mt-4">
                 <button
                   type="submit"
                   disabled={bikeSaving}
@@ -509,7 +665,10 @@ export default function Admin() {
               {partForm.id ? "Edit Part" : "Add New Part"}
             </h2>
 
-            <form onSubmit={handleSavePart} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form
+              onSubmit={handleSavePart}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <input
                 type="text"
                 placeholder="Name"
@@ -571,7 +730,7 @@ export default function Admin() {
                 <button
                   type="submit"
                   disabled={partSaving}
-                  className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-60"
+                  className="px-4 py-2 bg_black text-white rounded-lg hover:bg-gray-800 disabled:opacity-60 bg-black"
                 >
                   {partForm.id ? "Save Changes" : "Add Part"}
                 </button>
