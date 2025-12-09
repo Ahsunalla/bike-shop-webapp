@@ -42,9 +42,7 @@ export default function Home() {
           <h2 className="text-white text-4xl font-bold mb-4">Red Beauty</h2>
 
           <p className="text-white max-w-md mb-6">
-            Looking for bicycles for sale in Copenhagen? The red Van de Lux
-            women's bike with 3 gears is waiting for you at MS Cykelcenter,
-            your local bike shop by Vesterport Station.
+          Leder du efter cykler til salg i København? Den røde Van de Lux damecykel med 3 gear venter på dig hos MS Cykelcenter, din lokale cykelbutik ved Vesterport Station.
           </p>
 
           {/* BUTTON (one button only) */}
@@ -77,7 +75,7 @@ export default function Home() {
       {/* NORDEN ELLEN BLUSH STRIP */}
       <section className="w-full py-4 px-4">
   <div className="bg-black text-white py-20 rounded-xl flex flex-col items-center">
-    <h2 className="text-7xl font-bold mb-6">Norden Ellen Blush</h2>
+    <h2 className="text-7xl font-bold mb-6">Van de Lux </h2>
     <p className="mb-8 text-4xl opacity-80">With 7 Gears</p>
 
     <img
@@ -107,13 +105,13 @@ export default function Home() {
     background: "linear-gradient(to bottom, #F5F5F7 0%, #FFFFFF 100%)"
   }}
 >
-  <h3 className="text-3xl font-semibold">Ebsen Street</h3>
+  <h3 className="text-3xl font-semibold">Velo Lux </h3>
   <p className="mb-6 opacity-70">
     The ultimate way to reach your destination
   </p>
 
   <img
-    src="https://nrwytmkeshyrkblofvrz.supabase.co/storage/v1/object/public/bike-images/IMG_9153-PhotoRoom.png-PhotoRoom.png.webp"
+    src="https://nrwytmkeshyrkblofvrz.supabase.co/storage/v1/object/public/bike-images/IMG_9150-PhotoRoom.png-PhotoRoom.png.webp"
     className="w-[430px]"
   />
 
@@ -128,13 +126,13 @@ export default function Home() {
 
           {/* RIGHT SIDE */}
           <div className="bg-[#F2B8BE] flex flex-col items-center py-16 rounded-xl">
-            <h3 className="text-3xl font-semibold">Norden Ellen</h3>
+            <h3 className="text-3xl font-semibold"> Falcon</h3>
             <p className="mb-6 opacity-70">
               Enjoy every minute with comfort and style
             </p>
 
             <img
-              src="https://nrwytmkeshyrkblofvrz.supabase.co/storage/v1/object/public/bike-images/IMG_9173_2-PhotoRoom.png-PhotoRoom.png.webp"
+              src="https://nrwytmkeshyrkblofvrz.supabase.co/storage/v1/object/public/bike-images/IMG_9204-PhotoRoom.png-PhotoRoom.png.webp"
               className="w-[430px]"
               alt="Norden Ellen Pink"
             />
@@ -161,11 +159,11 @@ export default function Home() {
     background: "linear-gradient(to bottom right, #E8D9FF 0%, #FFCCE7 100%)"
   }}
 >
-  <h3 className="text-3xl font-semibold">Winther Green 250</h3>
+  <h3 className="text-3xl font-semibold">Falcon</h3>
   <p className="mb-6 opacity-70">Enjoy your elegant rides</p>
 
   <img
-    src="https://nrwytmkeshyrkblofvrz.supabase.co/storage/v1/object/public/bike-images/IMG_9153-PhotoRoom.png-PhotoRoom.png.webp"
+    src="https://nrwytmkeshyrkblofvrz.supabase.co/storage/v1/object/public/bike-images/IMG_9197-PhotoRoom.png-PhotoRoom.png.webp"
     className="w-[430px]"
   />
 
@@ -185,9 +183,9 @@ export default function Home() {
     background: "linear-gradient(to bottom, #D7E5F3, #FFFFFF)"
   }}
 >
-  <h3 className="text-3xl font-semibold">Norden Ellen</h3>
+  <h3 className="text-3xl font-semibold">Van de Lux</h3>
   <p className="mb-6 opacity-70">
-    Enjoy every minute with comfort and style
+    The best example of perfection as a bike
   </p>
 
   <img
