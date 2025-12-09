@@ -183,7 +183,6 @@ export default function Home() {
     background: "linear-gradient(to bottom, #D7E5F3, #FFFFFF)"
   }}
 >
-  /* van de lux instead*/
   <h3 className="text-3xl font-semibold">Van de Lux</h3>
   <p className="mb-6 opacity-70">
     The best example of perfection as a bike
