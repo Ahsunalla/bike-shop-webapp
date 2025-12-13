@@ -8,7 +8,7 @@ export default function Bikes() {
   const [bikes, setBikes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [categoryFilter, setCategoryFilter] = useState("Alle");
+  const [categoryFilter, setCategoryFilter] = useState("All");
   const [sortOption, setSortOption] = useState("default");
 
   const [selectedBike, setSelectedBike] = useState(null);
@@ -36,12 +36,12 @@ export default function Bikes() {
   }, []);
 
   // Unique categories for filters
-  const categories = ["Alle", ...Array.from(new Set(bikes.map((b) => b.category)))];
+  const categories = ["All", ...Array.from(new Set(bikes.map((b) => b.category)))];
 
   // Filtered + sorted bikes
   const processedBikes = bikes
     .filter((bike) =>
-      categoryFilter === "Alle" ? true : bike.category === categoryFilter
+      categoryFilter === "All" ? true : bike.category === categoryFilter
     )
     .sort((a, b) => {
       if (sortOption === "price-asc") {
@@ -86,10 +86,10 @@ export default function Bikes() {
       {/* HERO SECTION */}
       <section className="text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-          Vores Cykler
+          Our Bikes
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Udforsk vores udvalg af kvalitetscykler til hverdagsbrug, motion og eventyr.
+          Explore our selection of quality bicycles for everyday use, exercise, and adventure.
         </p>
       </section>
 
@@ -114,24 +114,24 @@ export default function Bikes() {
 
         {/* Sorting */}
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-600">Sortér efter:</span>
+          <span className="text-sm text-gray-600">Sort after:</span>
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
             className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
           >
             <option value="default">Standard</option>
-            <option value="price-asc">Pris: Lav → Høj</option>
-            <option value="price-desc">Pris: Høj → Lav</option>
-            <option value="newest">Nyeste</option>
-            <option value="stock-desc">Lager: Høj → Lav</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="newest">Newest</option>
+            <option value="stock-desc">stock: High → Low</option>
           </select>
         </div>
       </div>
 
       {/* GRID OF BIKES */}
       {processedBikes.length === 0 ? (
-        <p className="text-center text-gray-600">Ingen cykler fundet.</p>
+        <p className="text-center text-gray-600">No bikes found.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {processedBikes.map((bike) => (
@@ -181,7 +181,7 @@ export default function Bikes() {
               {/* Stock */}
               {selectedBike.stock !== null && selectedBike.stock !== undefined && (
                 <p className="text-sm text-gray-700">
-                  Lager:{" "}
+                  Stock:{" "}
                   <span className="font-medium">
                     {selectedBike.stock > 0
                       ? `${selectedBike.stock} på lager`

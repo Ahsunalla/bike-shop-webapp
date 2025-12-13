@@ -3,13 +3,12 @@ export default function About() {
     <div className="max-w-5xl mx-auto px-6 py-16">
       {/* Title */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 text-center">
-        Om MS Cykelcenter
+        About MS Cykelcenter
       </h1>
 
       <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-        Hos MS Cykelcenter kombinerer vi passion for kvalitet, cykelglæde og mange års erfaring. 
-        Vi hjælper dig med at finde den perfekte cykel og de bedste reservedele — uanset om du 
-        pendler, motionerer eller vil ud på eventyr.
+        At MS Cykelcenter, we combine a passion for quality, a love of cycling, and many years of experience.
+        We help you find the perfect bike and the best spare parts, whether you commute, exercise, or are heading out on an adventure. 
       </p>
 
       {/* Image section */}
@@ -24,20 +23,17 @@ export default function About() {
       {/* Mission section */}
       <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
         <p>
-          Vores mål er at give dig den bedste service – både i butikken og online. 
-          Vi udvælger nøje vores cykler og cykeldele, så du får produkter, du kan 
-          stole på, og som holder i mange år.
+          Our goal is to provide you with the best service, both in store and online.
+          We carefully select our bicycles and bike parts so you get products you can rely on and that will last for many years.
         </p>
 
         <p>
-          Hos os finder du alt fra herre-, dame- og børnecykler til hjelme, låse, 
-          tilbehør og service. Vi tror på gennemsigtighed, god rådgivning og 
-          konkurrencedygtige priser.
+          With us, you’ll find everything from men’s, women’s, and children’s bicycles to helmets, locks, accessories, and service. 
+          We believe in transparency, good guidance, and competitive prices.
         </p>
 
         <p>
-          Har du spørgsmål? Vores team står altid klar til at hjælpe dig videre — 
-          både online og i butikken på Vester Farimagsgade.
+          Do you have any questions? Our team is always ready to assist you, both online and in our shop on Vester Farimagsgade.
         </p>
       </div>
     </div>

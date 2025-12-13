@@ -3,12 +3,12 @@ export default function Contact() {
     <div className="max-w-4xl mx-auto px-6 py-16">
       {/* Title */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 text-center">
-        Kontakt Os
+        Contact Us
       </h1>
 
       <p className="text-center text-gray-600 max-w-xl mx-auto mb-12">
-        Har du spørgsmål om cykler, reservedele eller service?  
-        Vi står klar til at hjælpe dig.
+        Do you have any questions about bicycles, spare parts, or service?
+        We are ready to help you.
       </p>
 
       {/* Contact Card */}
@@ -26,7 +26,7 @@ export default function Contact() {
           </p>
 
           <p>
-            <strong>Adresse:</strong><br />
+            <strong>Adress:</strong><br />
             Vester Farimagsgade 4-6,<br />
             1600 København V
           </p>
@@ -39,9 +39,9 @@ export default function Contact() {
           </p>
 
           <div className="mt-6">
-            <p className="font-semibold text-gray-900">Åbningstider</p>
-            <p>Man–Fre: 09.00 – 18.00</p>
-            <p>Lør–Søn: 09.00 – 16.00</p>
+            <p className="font-semibold text-gray-900">Opening hours</p>
+            <p>Mon–Fri: 09.00 – 18.00</p>
+            <p>Sat–Sun: 09.00 – 16.00</p>
           </div>
         </div>
 

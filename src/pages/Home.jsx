@@ -42,7 +42,7 @@ export default function Home() {
           <h2 className="text-white text-4xl font-bold mb-4">Red Beauty</h2>
 
           <p className="text-white max-w-md mb-6">
-          Leder du efter cykler til salg i København? Den røde Van de Lux damecykel med 3 gear venter på dig hos MS Cykelcenter, din lokale cykelbutik ved Vesterport Station.
+          Are you looking for bicycles for sale in Copenhagen? The red Van de Lux women's bike with 3 gears is waiting for you at MS Cykelcenter, your local bike shop by Vesterport Station.
           </p>
 
           {/* BUTTON (one button only) */}

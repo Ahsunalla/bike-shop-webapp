@@ -8,7 +8,7 @@ export default function Parts() {
   const [parts, setParts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [categoryFilter, setCategoryFilter] = useState("Alle");
+  const [categoryFilter, setCategoryFilter] = useState("All");
   const [sortOption, setSortOption] = useState("default");
 
   const [selectedPart, setSelectedPart] = useState(null);
@@ -35,11 +35,11 @@ export default function Parts() {
     loadParts();
   }, []);
 
-  const categories = ["Alle", ...Array.from(new Set(parts.map((p) => p.category)))];
+  const categories = ["All", ...Array.from(new Set(parts.map((p) => p.category)))];
 
   // Filter + sort
   const processedParts = parts
-    .filter((p) => (categoryFilter === "Alle" ? true : p.category === categoryFilter))
+    .filter((p) => (categoryFilter === "All" ? true : p.category === categoryFilter))
     .sort((a, b) => {
       if (sortOption === "price-asc") return a.price - b.price;
       if (sortOption === "price-desc") return b.price - a.price;
@@ -99,9 +99,9 @@ export default function Parts() {
           className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
         >
           <option value="default">Standard</option>
-          <option value="price-asc">Pris: Lav → Høj</option>
-          <option value="price-desc">Pris: Høj → Lav</option>
-          <option value="newest">Nyeste</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="newest">Newest</option>
         </select>
       </div>
 
