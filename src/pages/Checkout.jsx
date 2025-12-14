@@ -1,3 +1,4 @@
+// src/pages/Checkout.jsx
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -41,19 +42,28 @@ export default function Checkout() {
       const res = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: cart }), // FIXED
+        body: JSON.stringify({ items: cart }),
       });
 
       const data = await res.json();
 
+      if (!res.ok) {
+        console.error("Payment API error:", data);
+        alert(data.error || "Payment error. Try again.");
+        return;
+      }
+
       if (data.url) {
+        // Optionally clear the cart only after successful redirect
+        // clearCart();
         window.location.href = data.url;
       } else {
-        alert("Payment error. Try again.");
+        console.error("Payment API returned no URL:", data);
+        alert("Payment error. No redirect URL returned.");
       }
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong.");
+      console.error("Network error calling payment API:", err);
+      alert("Network error. Try again.");
     }
   };
 
@@ -79,7 +89,6 @@ export default function Checkout() {
       <h1 className="text-4xl font-bold mb-10 text-center">Checkout</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-
         {/* CUSTOMER FORM */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Dine oplysninger</h2>
@@ -141,7 +150,6 @@ export default function Checkout() {
             Betal nu
           </button>
         </div>
-
       </div>
     </div>
   );
