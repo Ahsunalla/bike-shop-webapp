@@ -13,15 +13,15 @@ export default function Cart() {
   if (cart.length === 0) {
     return (
       <div className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Din kurv er tom</h1>
+        <h1 className="text-3xl font-bold mb-4">Cart is empty</h1>
         <p className="text-gray-600 mb-6">
-          Tilføj en cykel til din kurv for at komme i gang.
+          Add a bicycle to your cart to get started.
         </p>
         <button
           onClick={() => navigate("/bikes")}
           className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
         >
-          Se cykler
+          See bikes
         </button>
       </div>
     );
@@ -91,7 +91,7 @@ export default function Cart() {
                 onClick={() => removeFromCart(item.id)}
                 className="text-red-600 hover:text-red-800 font-semibold text-sm"
               >
-                Fjern
+                Remove
               </button>
             </div>
           </div>
@@ -109,14 +109,14 @@ export default function Cart() {
             onClick={() => navigate("/bikes")}
             className="px-6 py-3 border border-black rounded-full hover:bg-gray-200 transition"
           >
-            Fortsæt med at handle
+            Continue Shopping
           </button>
 
           <button
             onClick={() => navigate("/checkout")}
             className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
           >
-            Gå til betaling
+            Go to checkout
           </button>
         </div>
       </div>

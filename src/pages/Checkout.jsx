@@ -70,15 +70,15 @@ export default function Checkout() {
   if (cart.length === 0) {
     return (
       <div className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Din kurv er tom</h1>
+        <h1 className="text-3xl font-bold mb-4">Cart is empty</h1>
         <p className="text-gray-600 mb-6">
-          Tilføj en cykel for at fortsætte til checkout.
+          Add a bike to proceed to checkout.
         </p>
         <button
           onClick={() => navigate("/bikes")}
           className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition"
         >
-          Se cykler
+          See bikes
         </button>
       </div>
     );
@@ -147,7 +147,7 @@ export default function Checkout() {
             className="mt-8 w-full py-3 bg-black text-white 
             rounded-full hover:bg-gray-900 transition"
           >
-            Betal nu
+            Pay Now
           </button>
         </div>
       </div>
