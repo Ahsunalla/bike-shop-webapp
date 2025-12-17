@@ -29,7 +29,7 @@ export default function Cart() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-10 text-center">Din Kurv</h1>
+      <h1 className="text-4xl font-bold mb-10 text-center">Your Cart</h1>
 
       {/* CART ITEMS */}
       <div className="space-y-8">

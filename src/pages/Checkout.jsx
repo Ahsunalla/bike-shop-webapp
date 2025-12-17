@@ -91,7 +91,7 @@ export default function Checkout() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* CUSTOMER FORM */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Dine oplysninger</h2>
+          <h2 className="text-2xl font-semibold mb-4">Your details</h2>
 
           <div className="space-y-4">
             {["name", "email", "phone", "address", "postal", "city"].map(
@@ -121,7 +121,7 @@ export default function Checkout() {
 
         {/* ORDER SUMMARY */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Ordreoversigt</h2>
+          <h2 className="text-2xl font-semibold mb-4">Order summary</h2>
 
           <div className="space-y-4">
             {cart.map((item) => (
