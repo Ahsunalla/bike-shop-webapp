@@ -78,7 +78,7 @@ export default function Navbar() {
 
   return (
     <nav style={{ backgroundColor: "#FE3C4C" }} className="text-white">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 relative">
+      <div className="w-full flex justify-between items-center px-16 py-4 relative">
 
         {/* LOGO */}
         <Link to="/" className="text-2xl font-bold">MS Cykler</Link>
