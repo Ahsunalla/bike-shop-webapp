@@ -28,7 +28,7 @@ export default function Checkout() {
     const fields = ["name", "email", "phone", "address", "postal", "city"];
 
     fields.forEach((f) => {
-      if (!form[f].trim()) newErrors[f] = "Påkrævet";
+      if (!form[f].trim()) newErrors[f] = "Required";
     });
 
     setErrors(newErrors);
